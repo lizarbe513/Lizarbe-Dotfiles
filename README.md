@@ -13,12 +13,12 @@ Este proyecto orquesta e integra los componentes clave del ecosistema **Lizarbe*
 Abre una terminal en tu sistema Omarchy y pega el siguiente comando:
 
 ```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/lizarbe513/lizarbe-dotfiles/main/install.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/lizarbe513/Lizarbe-Dotfiles/main/install.sh)"
 ```
 
 > **Alternativa con tubería directa:**
 > ```bash
-> curl -fsSL https://raw.githubusercontent.com/lizarbe513/lizarbe-dotfiles/main/install.sh | bash
+> curl -fsSL https://raw.githubusercontent.com/lizarbe513/Lizarbe-Dotfiles/main/install.sh | bash
 > ```
 
 ---
@@ -26,7 +26,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/lizarbe513/lizarbe-dotfi
 ## 📦 Componentes Incluidos
 
 ```
-lizarbe-dotfiles (Umbrella)
+Lizarbe-Dotfiles (Umbrella)
 ├── 🎛️ Meca-HyprConfig         -> Panel de control TUI para Hyprland
 │   ├── Configuración de Monitores & Escala
 │   ├── Personalización estética en vivo (gaps, bordes, sombras, blur)
@@ -63,8 +63,8 @@ Si prefieres automatizar la instalación desatendida, puedes pasar argumentos al
 ### Instalación Manual (Clonando el Repositorio)
 
 ```bash
-git clone --recurse-submodules https://github.com/lizarbe513/lizarbe-dotfiles.git
-cd lizarbe-dotfiles
+git clone --recurse-submodules https://github.com/lizarbe513/Lizarbe-Dotfiles.git
+cd Lizarbe-Dotfiles
 ./install.sh
 ```
 

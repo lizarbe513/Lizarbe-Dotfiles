@@ -39,15 +39,15 @@ cat << 'BANNER'
 BANNER
 echo -e "${NC}"
 
-# Si se ejecuta mediante curl/pipe o fuera de la carpeta del proyecto, clonar en ~/.local/share/lizarbe-dotfiles
-TARGET_BASE="${XDG_DATA_HOME:-$HOME/.local/share}/lizarbe-dotfiles"
+# Si se ejecuta mediante curl/pipe o fuera de la carpeta del proyecto, clonar en ~/.local/share/Lizarbe-Dotfiles
+TARGET_BASE="${XDG_DATA_HOME:-$HOME/.local/share}/Lizarbe-Dotfiles"
 if [[ ! -f "$SCRIPT_DIR/install.sh" || ! -d "$SCRIPT_DIR/modules" ]]; then
     info "Descargando repositorio paraguas en $TARGET_BASE..."
     if [[ -d "$TARGET_BASE/.git" ]]; then
         git -C "$TARGET_BASE" pull --recurse-submodules --ff-only || true
     else
         mkdir -p "$(dirname "$TARGET_BASE")"
-        git clone --recurse-submodules https://github.com/lizarbe513/lizarbe-dotfiles.git "$TARGET_BASE"
+        git clone --recurse-submodules https://github.com/lizarbe513/Lizarbe-Dotfiles.git "$TARGET_BASE"
     fi
     SCRIPT_DIR="$TARGET_BASE"
 fi
