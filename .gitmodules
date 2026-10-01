@@ -1,0 +1,6 @@
+[submodule "modules/meca-hyprconfig"]
+	path = modules/meca-hyprconfig
+	url = https://github.com/lizarbe513/Meca-HyprConfig.git
+[submodule "modules/lizarbe-omarchy-config"]
+	path = modules/lizarbe-omarchy-config
+	url = https://github.com/lizarbe513/Lizarbe-Omarchy-Config.git
