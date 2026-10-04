@@ -85,19 +85,24 @@ echo ""
 info "Iniciando instalación del entorno completo..."
 echo ""
 
-# 1. Configuración de carpetas de usuario estándar (Plantillas / Templates)
-info "Preparando carpetas base y plantillas de usuario..."
-mkdir -p "$HOME/Templates"
-touch "$HOME/Templates/New Document.txt"
-if command -v xdg-user-dirs-update &>/dev/null; then
-    xdg-user-dirs-update --set TEMPLATES "$HOME/Templates" 2>/dev/null || true
+# 1. Aplicar ajustes previos del sistema (Reglas Hyprland idle_inhibit, plantillas, etc.)
+echo ""
+info "------------------------------------------------------------"
+info "Paso 1: Aplicando ajustes previos del sistema (system/)"
+info "------------------------------------------------------------"
+if [[ -f "$SCRIPT_DIR/system/apply.sh" ]]; then
+    bash "$SCRIPT_DIR/system/apply.sh" "$HOME"
+else
+    # Fallback básico si se ejecuta sin la carpeta system
+    mkdir -p "$HOME/Templates"
+    touch "$HOME/Templates/New Document.txt"
 fi
-success "Plantillas de usuario configuradas (~/Templates)."
+success "Ajustes previos del sistema aplicados con éxito."
 
 # 2. Instalación de Lizarbe Omarchy Config (Tema, suites, fastfetch, iconos, etc.)
 echo ""
 info "------------------------------------------------------------"
-info "Paso 1: Instalando Lizarbe-Omarchy-Config (Temas y Software)"
+info "Paso 2: Instalando Lizarbe-Omarchy-Config (Temas y Software)"
 info "------------------------------------------------------------"
 if [[ -f "$CONFIG_DIR/install.sh" ]]; then
     bash "$CONFIG_DIR/install.sh" "${ARGS[@]}"
@@ -108,7 +113,7 @@ fi
 # 3. Instalación de MECA (Panel TUI para Hyprland)
 echo ""
 info "------------------------------------------------------------"
-info "Paso 2: Instalando MECA (Meca-HyprConfig)"
+info "Paso 3: Instalando MECA (Meca-HyprConfig)"
 info "------------------------------------------------------------"
 if [[ -f "$MECA_DIR/install.sh" ]]; then
     bash "$MECA_DIR/install.sh"

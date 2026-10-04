@@ -1,10 +1,11 @@
 # ☂️ Lizarbe Dotfiles — Repositorio Paraguas para Omarchy
 
-> Repositorio paraguas (*meta-repositorio*) diseñado para preparar, personalizar y enriquecer una instalación completa del sistema operativo **Omarchy** (Arch Linux + Hyprland) para un usuario general y avanzado.
+> Repositorio paraguas (*meta-repositorio*) diseñado para preparar, personalizar y enriquecer una instalación completa del sistema operativo **Omarchy** (Arch Linux + Hyprland) para un usuario general y avanzado, así como proveer las preconfiguraciones para la generación de la **ISO oficial de Omarchy**.
 
-Este proyecto orquesta e integra los componentes clave del ecosistema **Lizarbe** en una sola suite coordinada:
-1. **[Meca-HyprConfig](https://github.com/lizarbe513/Meca-HyprConfig)**: Panel TUI reactivo y flotante para gestionar la configuración de Hyprland (monitores, atajos, gaps, blur, autostart y teclado).
-2. **[Lizarbe-Omarchy-Config](https://github.com/lizarbe513/Lizarbe-Omarchy-Config)**: Tema visual Lizarbe (Dark/Light), iconos `Lizarbe-Red`, tema GTK `Darky`, Starship prompt, Fastfetch personalizado, reglas de ventanas y suites de software modulares (Ofimática, Desarrollo, 2D, 3D/CAD, Multimedia).
+Este proyecto orquesta tanto los ajustes base del sistema operativo como los componentes del ecosistema **Lizarbe**:
+1. **[system/](file:///home/leonardo/Projects/lizarbe%20dotfiles/system)**: Ajustes previos y comportamiento del sistema (inhibición de suspensión en videos, plantillas de usuario, reglas de ventana).
+2. **[Meca-HyprConfig](https://github.com/lizarbe513/Meca-HyprConfig)**: Panel TUI reactivo y flotante para gestionar la configuración de Hyprland (monitores, atajos, gaps, blur, autostart y teclado).
+3. **[Lizarbe-Omarchy-Config](https://github.com/lizarbe513/Lizarbe-Omarchy-Config)**: Tema visual Lizarbe (Dark/Light), iconos `Lizarbe-Red`, tema GTK `Darky`, Starship prompt, Fastfetch personalizado y suites de software modulares (Ofimática, Desarrollo, 2D, 3D/CAD, Multimedia).
 
 ---
 
@@ -23,18 +24,23 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/lizarbe513/Lizarbe-Dotfi
 
 ---
 
-## 📦 Componentes Incluidos
+## 📦 Estructura del Repositorio
 
 ```
 Lizarbe-Dotfiles (Umbrella)
-├── 🎛️ Meca-HyprConfig         -> Panel de control TUI para Hyprland
+├── ⚙️ system/                  -> Ajustes previos del sistema y aprovisionamiento para ISO
+│   ├── config/hypr/looknfeel.lua (idle_inhibit en videos, reglas base)
+│   ├── templates/ (Plantillas base del sistema: ~/Templates)
+│   └── apply.sh (Aplicador modular para $HOME o /etc/skel en la ISO)
+│
+├── 🎛️ modules/meca-hyprconfig -> Panel de control TUI para Hyprland
 │   ├── Configuración de Monitores & Escala
 │   ├── Personalización estética en vivo (gaps, bordes, sombras, blur)
 │   ├── Grabador y gestor de atajos de teclado (Keybinds)
 │   ├── Corrección de Bloq Mayús / Compose (Alt Gr)
 │   └── Autostart de aplicaciones
 │
-└── 🎨 Lizarbe-Omarchy-Config   -> Identidad visual, dotfiles y catálogo de software
+└── 🎨 modules/lizarbe-omarchy-config -> Identidad visual, dotfiles y software
     ├── Tema Omarchy Lizarbe Red & Lizarbe Light
     ├── Tema GTK Darky & Iconos Lizarbe-Red
     ├── Fastfetch personalizado & Starship Prompt
@@ -58,7 +64,7 @@ Si prefieres automatizar la instalación desatendida, puedes pasar argumentos al
 | :--- | :--- |
 | `bash -c "$(curl -fsSL ...)" -- --all` | Instala todas las suites completas (incluyendo suites 3D/CAD). |
 | `bash -c "$(curl -fsSL ...)" -- --no-3d` | **Recomendado para portátiles**: instala todo excepto herramientas 3D pesadas. |
-| `bash -c "$(curl -fsSL ...)" -- --core-only` | Instala únicamente el tema visual, MECA, branding y dotfiles base. |
+| `bash -c "$(curl -fsSL ...)" -- --core-only` | Instala únicamente ajustes del sistema, tema visual, MECA y branding base. |
 
 ### Instalación Manual (Clonando el Repositorio)
 
@@ -79,14 +85,12 @@ Abre el gestor integral de suites, temas y software:
 ```bash
 lizarbe
 ```
-O búscalo en el lanzador de aplicaciones (`Super + Espacio`) como **Lizarbe Theme & Suite**.
 
 ### 2. Panel de Configuración de Hyprland (`meca`)
 Ajusta la apariencia visual del escritorio, gaps, atajos de teclado y monitores en tiempo real:
 ```bash
 meca
 ```
-O accede a través del menú de Omarchy (`Setup` ➔ `Config` ➔ `Meca`).
 
 ### 3. Consultar Estado y Actualizaciones
 ```bash
