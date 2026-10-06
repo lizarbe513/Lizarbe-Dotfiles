@@ -4,7 +4,7 @@
 
 Este proyecto orquesta tanto los ajustes base del sistema operativo como los componentes del ecosistema **Lizarbe**:
 1. **[system/](file:///home/leonardo/Projects/lizarbe%20dotfiles/system)**: Ajustes previos y comportamiento del sistema (inhibición de suspensión en videos, plantillas de usuario, reglas de ventana).
-2. **[Meca-HyprConfig](https://github.com/lizarbe513/Meca-HyprConfig)**: Panel TUI reactivo y flotante para gestionar la configuración de Hyprland (monitores, atajos, gaps, blur, autostart y teclado).
+2. **[Lizarbe-Ajustes](https://github.com/lizarbe513/Lizarbe-Ajustes)**: Paneles TUI **Escritorio** (Hyprland: ventanas, pantallas, teclado, atajos, temas) y **Widgets** (barra, widgets y plugins). Reemplaza a Meca-HyprConfig.
 3. **[Lizarbe-Omarchy-Config](https://github.com/lizarbe513/Lizarbe-Omarchy-Config)**: Tema visual Lizarbe (Dark/Light), iconos `Lizarbe-Red`, tema GTK `Darky`, Starship prompt, Fastfetch personalizado y suites de software modulares (Ofimática, Desarrollo, 2D, 3D/CAD, Multimedia).
 
 ---
@@ -33,7 +33,7 @@ Lizarbe-Dotfiles (Umbrella)
 │   ├── templates/ (Plantillas base del sistema: ~/Templates)
 │   └── apply.sh (Aplicador modular para $HOME o /etc/skel en la ISO)
 │
-├── 🎛️ modules/meca-hyprconfig -> Panel de control TUI para Hyprland
+├── 🎛️ modules/lizarbe-ajustes -> Paneles TUI Escritorio y Widgets
 │   ├── Configuración de Monitores & Escala
 │   ├── Personalización estética en vivo (gaps, bordes, sombras, blur)
 │   ├── Grabador y gestor de atajos de teclado (Keybinds)
@@ -64,7 +64,7 @@ Si prefieres automatizar la instalación desatendida, puedes pasar argumentos al
 | :--- | :--- |
 | `bash -c "$(curl -fsSL ...)" -- --all` | Instala todas las suites completas (incluyendo suites 3D/CAD). |
 | `bash -c "$(curl -fsSL ...)" -- --no-3d` | **Recomendado para portátiles**: instala todo excepto herramientas 3D pesadas. |
-| `bash -c "$(curl -fsSL ...)" -- --core-only` | Instala únicamente ajustes del sistema, tema visual, MECA y branding base. |
+| `bash -c "$(curl -fsSL ...)" -- --core-only` | Instala únicamente ajustes del sistema, tema visual, Ajustes y branding base. |
 
 ### Instalación Manual (Clonando el Repositorio)
 
@@ -86,10 +86,11 @@ Abre el gestor integral de suites, temas y software:
 lizarbe
 ```
 
-### 2. Panel de Configuración de Hyprland (`meca`)
-Ajusta la apariencia visual del escritorio, gaps, atajos de teclado y monitores en tiempo real:
+### 2. Paneles de Configuración (`lizarbe-escritorio` y `lizarbe-widgets`)
+Escritorio ajusta Hyprland (apariencia, ventanas, pantallas, teclado, atajos, temas) y Widgets la barra y los plugins:
 ```bash
-meca
+lizarbe-escritorio
+lizarbe-widgets
 ```
 
 ### 3. Consultar Estado y Actualizaciones

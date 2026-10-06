@@ -58,15 +58,15 @@ if [[ -d "$SCRIPT_DIR/.git" ]]; then
     git -C "$SCRIPT_DIR" submodule update --init --recursive || true
 fi
 
-MECA_DIR="$SCRIPT_DIR/modules/meca-hyprconfig"
+AJUSTES_DIR="$SCRIPT_DIR/modules/lizarbe-ajustes"
 CONFIG_DIR="$SCRIPT_DIR/modules/lizarbe-omarchy-config"
 
 # Fallback si los submódulos no estuviesen presentes
-if [[ ! -f "$MECA_DIR/install.sh" ]]; then
-    MECA_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/meca-hyprconfig"
-    if [[ ! -d "$MECA_DIR" ]]; then
-        info "Clonando Meca-HyprConfig..."
-        git clone https://github.com/lizarbe513/Meca-HyprConfig.git "$MECA_DIR"
+if [[ ! -f "$AJUSTES_DIR/install.sh" ]]; then
+    AJUSTES_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/lizarbe-ajustes"
+    if [[ ! -d "$AJUSTES_DIR" ]]; then
+        info "Clonando Lizarbe-Ajustes..."
+        git clone https://github.com/lizarbe513/Lizarbe-Ajustes.git "$AJUSTES_DIR"
     fi
 fi
 
@@ -110,15 +110,15 @@ else
     error "No se encontró el instalador de Lizarbe-Omarchy-Config en $CONFIG_DIR"
 fi
 
-# 3. Instalación de MECA (Panel TUI para Hyprland)
+# 3. Instalación de Lizarbe Ajustes (Escritorio y Widgets)
 echo ""
 info "------------------------------------------------------------"
-info "Paso 3: Instalando MECA (Meca-HyprConfig)"
+info "Paso 3: Instalando Lizarbe-Ajustes (Escritorio y Widgets)"
 info "------------------------------------------------------------"
-if [[ -f "$MECA_DIR/install.sh" ]]; then
-    bash "$MECA_DIR/install.sh"
+if [[ -f "$AJUSTES_DIR/install.sh" ]]; then
+    bash "$AJUSTES_DIR/install.sh"
 else
-    error "No se encontró el instalador de Meca-HyprConfig en $MECA_DIR"
+    error "No se encontró el instalador de Lizarbe-Ajustes en $AJUSTES_DIR"
 fi
 
 echo ""
@@ -128,7 +128,8 @@ echo -e "==============================================================${NC}"
 echo ""
 echo -e "${CYAN}Comandos principales disponibles en tu terminal:${NC}"
 echo -e "  • ${BOLD}lizarbe${NC}        -> Panel de control de temas, suites, apps y mantenimiento"
-echo -e "  • ${BOLD}meca${NC}           -> Panel TUI de personalización de Hyprland (gaps, blur, binds)"
+echo -e "  • ${BOLD}lizarbe-escritorio${NC} -> Panel TUI de Hyprland (ventanas, pantallas, teclado, atajos, temas)
+  • ${BOLD}lizarbe-widgets${NC}    -> Panel TUI de la barra, widgets y plugins"
 echo -e "  • ${BOLD}lizarbe status${NC} -> Ver estado de paquetes, temas y actualizaciones"
 echo ""
 echo -e "${YELLOW}Recomendación:${NC} Reinicia tu sesión de Hyprland o abre una nueva terminal para disfrutar de todos los cambios."
