@@ -1,9 +1,16 @@
 # ☂️ Lizarbe Dotfiles — Repositorio Paraguas para Omarchy
 
+> [!WARNING]
+> **Proyecto retirado.** Lizarbe ya no se instala con estos *dotfiles*: llega como paquetes
+> pacman firmados ([Lizarbe-Paquetes](https://github.com/lizarbe513/Lizarbe-Paquetes), metapaquete
+> `lizarbe`), preinstalados por la [ISO de Lizarbe](https://github.com/lizarbe513/Omarchy-Lizarbe_Fork)
+> y actualizados con `omarchy update`. Las reglas de `system/` (inhibir el bloqueo con vídeo,
+> ventanas flotantes) pasaron al paquete `lizarbe-menu`. Este repositorio queda solo como archivo.
+
 > Repositorio paraguas (*meta-repositorio*) diseñado para preparar, personalizar y enriquecer una instalación completa del sistema operativo **Omarchy** (Arch Linux + Hyprland) para un usuario general y avanzado, así como proveer las preconfiguraciones para la generación de la **ISO oficial de Omarchy**.
 
 Este proyecto orquesta tanto los ajustes base del sistema operativo como los componentes del ecosistema **Lizarbe**:
-1. **[system/](file:///home/leonardo/Projects/lizarbe%20dotfiles/system)**: Ajustes previos y comportamiento del sistema (inhibición de suspensión en videos, plantillas de usuario, reglas de ventana).
+1. **[system/](system)**: Ajustes previos y comportamiento del sistema (inhibición de suspensión en videos, plantillas de usuario, reglas de ventana).
 2. **[Lizarbe-Ajustes](https://github.com/lizarbe513/Lizarbe-Ajustes)**: Paneles TUI **Escritorio** (Hyprland: ventanas, pantallas, teclado, atajos, temas) y **Widgets** (barra, widgets y plugins). Reemplaza a Meca-HyprConfig.
 3. **[Lizarbe-Omarchy-Config](https://github.com/lizarbe513/Lizarbe-Omarchy-Config)**: Tema visual Lizarbe (Dark/Light), iconos `Lizarbe-Red`, tema GTK `Darky`, Starship prompt, Fastfetch personalizado y suites de software modulares (Ofimática, Desarrollo, 2D, 3D/CAD, Multimedia).
 
